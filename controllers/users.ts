@@ -1,32 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
+import UserModel from '../models/user'
 
-interface UsersInterface {
-  firstname: string;
-  lastname: string;
-  age: number;
-};
+const getUsers = async(req: Request, res: Response, next: NextFunction) => {
+  let user = await UserModel.find({})
 
-const getUsers = (request: Request, response: Response, next: NextFunction) => {
-  let locations: UsersInterface[] = [
-    {
-      firstname:'Mertcan',
-      lastname:'Arguc',
-      age:32
-    },
-    {
-      firstname:'Mert',
-      lastname:'Arguc',
-      age:32
-    },
-    {
-      firstname:'Mert can',
-      lastname:'Arguc',
-      age:32
-    },
-
-  ];
-
-  response.status(200).json(locations);
+  res.status(200).json(user);
 }
 
 export {getUsers};

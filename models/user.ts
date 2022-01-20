@@ -1,6 +1,7 @@
 import { Schema, model, connect } from 'mongoose'
 import * as dotenv from 'dotenv'
 dotenv.config()
+connect(process.env.MONGO_URI);
 
 interface User {
   firstname: string;
@@ -15,16 +16,5 @@ const schema = new Schema<User>({
 })
 
 const UserModel = model<User>('User',schema);
-run().catch(err => console.log(err))
 
-async function run(): Promise<void> {
-  await connect(process.env.MONGO_URI);
-  const doc = new UserModel({
-    firstname: 'Bill',
-    lastname: 'bill@initech.com',
-    age: 32
-  });
-  await doc.save();
-
-  console.log(doc.firstname); // 'bill@initech.com'
-}
+export default UserModel;

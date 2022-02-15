@@ -10,11 +10,11 @@ interface User {
 }
 
 const schema = new Schema<User>({
-  firstname:{type:String,required:true},
-  lastname:{type:String,required:true},
-  age:{type:Number,required:true},
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  age: { type: Number, required: true },
 })
 
-const UserModel = model<User>('User',schema);
+const UserModel = model<User>('User', schema);
 
 export default UserModel;

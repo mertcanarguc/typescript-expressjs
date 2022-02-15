@@ -5,7 +5,7 @@ dotenv.config()
 //APP
 const app = express();
 //ROUTES
-import indexRouter from './router/index';
+import indexRouter from './src/router/index';
 app.use('/', indexRouter)
 //CREATE SERVER
 const port = process.env.PORT

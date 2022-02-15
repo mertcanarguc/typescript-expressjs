@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import ArticleModel from '../models/article'
+import ArticleModel from './models/article'
 
 const getArticles = async(req: Request, res: Response, next: NextFunction) => {
   let article = await ArticleModel.find({})
